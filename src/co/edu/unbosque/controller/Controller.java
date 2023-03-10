@@ -63,11 +63,25 @@ public class Controller {
 				alg.busquedaSecuencial(SecArr, target);
 				break;
 			case "3":
+				int sizeArray = CV.readInt("Ingrese el tamaño del array: ");
+				int arr1[] = new int[sizeArray];
+				int search = 0;
+				for(int i = 0; i < arr1.length; i++) {
+					arr1[i] = CV.readInt("Ingrese valor para la posición " + i +": ");
+				}
+
+				Arrays.sort(arr1);
+				
+				System.out.println("Array: "+Arrays.toString(arr1));
+				search = CV.readInt("Qué elemento desea buscar: ");
+				int res = alg.busquedaBinaria(arr1, search);
+				System.out.println(res==-1?"No se encontró el elemento":"\nEl número "+search+" está en la posicón "+res+" del array.\n");
+				
 				// Algoritmo de búsqueda binaria
 				break;
 			}
 
-		} while (!response.equals("3"));
+		} while (!response.equals("4"));
 
 	}
 

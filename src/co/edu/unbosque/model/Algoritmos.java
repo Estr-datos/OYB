@@ -77,6 +77,23 @@ public class Algoritmos {
 		}
 		System.out.println();
 	}
+	
+	public int busquedaBinaria(int arr[], int n) {
+		int center, first = 0, last = arr.length-1, centerValue;
+		while(first <= last) {
+			center = (first + last)/2;
+			centerValue = arr[center];
+			if(n == centerValue) {
+				return center;
+			}
+			else if(n < centerValue) {
+				last = center-1;
+			}else {
+				first = center+1; 
+			}
+		}
+		return -1;
+	}
 
 }
 
